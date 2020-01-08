@@ -21,7 +21,10 @@ interface PromiseChain<T> {
 }
 
 export default class Axios {
+  // 默认配置
   defaults: AxiosRequestConfig
+
+  // 拦截器
   interceptors: Interceptors
 
   constructor(initConfig: AxiosRequestConfig) {
@@ -52,10 +55,12 @@ export default class Axios {
     ]
 
     this.interceptors.request.forEach(interceptor => {
+      // 对于请求拦截器，先添加的后执行
       chain.unshift(interceptor)
     })
 
     this.interceptors.response.forEach(interceptor => {
+      // 对于响应拦截器，先添加的先执行
       chain.push(interceptor)
     })
 
