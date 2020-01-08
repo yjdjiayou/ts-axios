@@ -1,3 +1,7 @@
+/**
+ * 合并配置
+ */
+
 import { AxiosRequestConfig } from '../types'
 import { deepMerge, isPlainObject } from '../helpers/util'
 

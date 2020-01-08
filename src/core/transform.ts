@@ -1,3 +1,6 @@
+/**
+ * 转换请求与响应
+ */
 import { AxiosTransformer } from '../types'
 
 export default function transform(
