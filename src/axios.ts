@@ -11,6 +11,8 @@ import mergeConfig from './core/mergeConfig'
 function createInstance(config: AxiosRequestConfig): AxiosStatic {
   const context = new Axios(config)
   // 这里需要返回一个混合对象，该对象既可以当作函数使用，也可以当作对象使用
+  // 官方的 Axios 就是既可以直接作为函数运行，参数传请求的方法
+  // 也可以直接使用 xxx.get() / xxx.request;
 
   // 当前的 instance 被赋值为一个函数，需要修正 this 的指向
   const instance = Axios.prototype.request.bind(context)
@@ -23,6 +25,8 @@ function createInstance(config: AxiosRequestConfig): AxiosStatic {
 }
 
 const axios = createInstance(defaults)
+
+
 
 axios.create = function create(config) {
   return createInstance(mergeConfig(defaults, config))
