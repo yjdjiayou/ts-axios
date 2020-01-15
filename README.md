@@ -12,17 +12,3 @@
 - JSON 数据的自动转换
 - 客户端防止 XSS
 
-## Usage
-
-```javascript
-const axios = require('axios')
-
-axios({
-  method: 'post',
-  url: '/user/12345',
-  data: {
-    firstName: 'Yee',
-    lastName: 'Huang'
-  }
-})
-```
